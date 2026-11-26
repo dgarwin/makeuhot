@@ -29,7 +29,12 @@
     -webkit-background-clip: text; background-clip: text; color: transparent; animation: slide 2s linear infinite; }
   @keyframes slide { to { background-position: 200% 0; } }
   marquee { font-family: "Comic Sans MS", "Comic Sans", cursive; font-weight: bold; }
-  .ticker { background: var(--hot); color: #ff0; border: 3px solid var(--ink); padding: 4px 0; font-size: 22px; }
+  .ticker { background: var(--hot); color: #ff0; border: 3px solid var(--ink); padding: 4px 0; font-size: 22px; overflow: hidden; white-space: nowrap;
+    font-family: "Comic Sans MS", "Comic Sans", cursive; font-weight: bold; }
+  .ticker .run { display: inline-flex; will-change: transform; animation: ticker 20s linear infinite; }
+  .ticker .run span { padding-right: .35em; }
+  @keyframes ticker { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+  @media (prefers-reduced-motion: reduce) { .ticker .run { animation: none; } }
   .big { font-size: 28px; font-weight: bold; }
   .q { font-size: clamp(28px, 7vw, 54px); font-weight: bold; margin: 6px 0; }
   .center { text-align: center; }
@@ -59,7 +64,7 @@
 </head>
 <body>
 
-<div class="ticker"><marquee scrollamount="8">★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★</marquee></div>
+<div class="ticker" role="marquee" aria-label="BE HOT LIKE DAVID"><div class="run" aria-hidden="true"><span>★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID</span><span>★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID ★ BE HOT LIKE DAVID</span></div></div>
 
 <div class="carousel" aria-label="Photos">
   <div class="track">

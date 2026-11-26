@@ -47,7 +47,6 @@
   .carousel { margin: 12px 0; border: 6px ridge #f0f; background: #000; padding: 8px 0; overflow: hidden; }
   .carousel .track { display: flex; width: max-content; will-change: transform; backface-visibility: hidden;
     transform: translate3d(0,0,0); animation: scroll 40s linear infinite; }
-  .carousel:hover .track { animation-play-state: paused; }
   .carousel img { height: 200px; width: auto; display: block; border: 3px solid #ff0; margin-right: 8px; flex: none; }
   @keyframes scroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
   @media (max-width: 520px) { .carousel img { height: 140px; } }

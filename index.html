@@ -48,16 +48,9 @@
   .carousel .frame { position: relative; aspect-ratio: 4 / 3; background: #000; overflow: hidden; }
   .slide { display: none; margin: 0; position: absolute; inset: 0; }
   .slide.on { display: block; }
-  .slide a { display: block; width: 100%; height: 100%; background: #000; }
   .slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
-  .slide .ph { display: none; }
-  .slide a.missing img { display: none; }
-  .slide a.missing .ph { display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center; text-align: center; height: 100%; padding: 12px;
-    color: #ff0; font-family: "Courier New", monospace; font-size: 32px; font-weight: bold;
-    background: repeating-linear-gradient(45deg, #00f 0 20px, #000 20px 40px); }
   .slide figcaption { position: absolute; left: 8px; bottom: 8px; background: #ff0; color: #000; border: 2px solid #000;
-    font-family: "Courier New", monospace; font-weight: bold; padding: 2px 6px; font-size: 14px; }
-  .slide .ph small { font-size: 16px; background: #000; padding: 2px 6px; }
+    font-family: "Courier New", monospace; font-weight: bold; padding: 2px 6px; font-size: 14px; max-width: calc(100% - 16px); }
   .controls { padding-top: 8px; }
   .controls .btn { cursor: pointer; font-size: 16px; }
   pre.baby { font-size: 14px; line-height: 1.05; margin: 0; display: inline-block; text-align: left; }
@@ -76,44 +69,28 @@
 <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Photos">
   <div class="frame">
     <figure class="slide on">
-      <a href="https://www.facebook.com/photo?fbid=10167988600244418&amp;set=a.10150099160074418"><img src="photos/01.jpg" alt="Photo 1 of 10: proof of hotness" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #01</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 01 / 10</figcaption>
+      <img src="photos/jumpshot.jpg" alt="A dancer leaping mid-air in a line of dancers with arms raised, under green stage lights">
+      <figcaption>01/06 &middot; THIS IS WHAT HOT LOOKS LIKE</figcaption>
     </figure>
     <figure class="slide">
-      <a href="https://www.facebook.com/photo.php?fbid=10167056688159418&amp;set=pb.746219417.-2207520000&amp;type=3"><img src="photos/02.jpg" alt="Photo 2 of 10: proof of hotness" loading="lazy" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #02</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 02 / 10</figcaption>
+      <img src="photos/drop.jpg" alt="Two dancers on a ballroom floor, one dropped into a dramatic floor split" loading="lazy">
+      <figcaption>02/06 &middot; DIPS: INCLUDED</figcaption>
     </figure>
     <figure class="slide">
-      <a href="https://www.facebook.com/photo.php?fbid=10163149108669418&amp;set=pb.746219417.-2207520000&amp;type=3"><img src="photos/03.jpg" alt="Photo 3 of 10: proof of hotness" loading="lazy" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #03</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 03 / 10</figcaption>
+      <img src="photos/sass.jpg" alt="A dancer striking a hand-on-hip pose with a stuffed toy balanced on his head" loading="lazy">
+      <figcaption>03/06 &middot; SASS LEVEL: 100%</figcaption>
     </figure>
     <figure class="slide">
-      <a href="https://www.facebook.com/photo.php?fbid=10162443200609418&amp;set=pb.746219417.-2207520000&amp;type=3"><img src="photos/04.jpg" alt="Photo 4 of 10: proof of hotness" loading="lazy" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #04</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 04 / 10</figcaption>
+      <img src="photos/floss.jpg" alt="Three dancers mid-move on a ballroom floor lined with Christmas trees" loading="lazy">
+      <figcaption>04/06 &middot; FLOSSING. IN THIS ECONOMY.</figcaption>
     </figure>
     <figure class="slide">
-      <a href="https://www.facebook.com/photo.php?fbid=10234599459705745&amp;set=t.746219417&amp;type=3"><img src="photos/05.jpg" alt="Photo 5 of 10: proof of hotness" loading="lazy" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #05</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 05 / 10</figcaption>
+      <img src="photos/headshot.jpg" alt="A dancer standing on stage in a hoodie among a group of dancers" loading="lazy">
+      <figcaption>05/06 &middot; SERIOUS ABOUT BEING HOT</figcaption>
     </figure>
     <figure class="slide">
-      <a href="https://www.facebook.com/photo.php?fbid=10104283532019443&amp;set=t.746219417&amp;type=3"><img src="photos/06.jpg" alt="Photo 6 of 10: proof of hotness" loading="lazy" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #06</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 06 / 10</figcaption>
-    </figure>
-    <figure class="slide">
-      <a href="https://www.facebook.com/photo.php?fbid=1408595956365427&amp;set=t.746219417&amp;type=3"><img src="photos/07.jpg" alt="Photo 7 of 10: proof of hotness" loading="lazy" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #07</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 07 / 10</figcaption>
-    </figure>
-    <figure class="slide">
-      <a href="https://www.facebook.com/photo.php?fbid=10159975362955942&amp;set=t.746219417&amp;type=3"><img src="photos/08.jpg" alt="Photo 8 of 10: proof of hotness" loading="lazy" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #08</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 08 / 10</figcaption>
-    </figure>
-    <figure class="slide">
-      <a href="https://www.facebook.com/photo.php?fbid=10159975369295942&amp;set=t.746219417&amp;type=3"><img src="photos/09.jpg" alt="Photo 9 of 10: proof of hotness" loading="lazy" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #09</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 09 / 10</figcaption>
-    </figure>
-    <figure class="slide">
-      <a href="https://www.facebook.com/photo.php?fbid=10159945753945942&amp;set=t.746219417&amp;type=3"><img src="photos/10.jpg" alt="Photo 10 of 10: proof of hotness" loading="lazy" onerror="this.parentNode.classList.add('missing')"><span class="ph"><b>PHOTO #10</b><small>loading on ur 56k modem...</small></span></a>
-      <figcaption>PHOTO 10 / 10</figcaption>
+      <img src="photos/butt.jpeg" alt="Three people in white outfits posing playfully in front of a stage curtain" loading="lazy">
+      <figcaption>06/06 &middot; CLIENT TESTIMONIALS</figcaption>
     </figure>
   </div>
   <div class="controls center">

@@ -22,6 +22,8 @@
   hr { border: 0; height: 6px; background: repeating-linear-gradient(90deg, #f00 0 20px, #00f 20px 40px, #0f0 40px 60px); margin: 18px 0; }
   table.box { width: 100%; border: 3px solid var(--ink); border-collapse: collapse; background: #fff; margin: 0 0 18px; }
   table.box td { border: 3px solid var(--ink); padding: 10px; vertical-align: top; }
+  table.box td > :first-child { margin-top: 0; }
+  table.box td > :last-child { margin-bottom: 0; }
   .blink { animation: blink 1s steps(1) infinite; }
   @keyframes blink { 50% { visibility: hidden; } }
   marquee { font-family: "Comic Sans MS", "Comic Sans", cursive; font-weight: bold; }

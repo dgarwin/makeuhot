@@ -26,7 +26,10 @@
   table.box td > :last-child { margin-bottom: 0; }
   .blink { animation: blink 1s steps(1) infinite; }
   @keyframes blink { 50% { visibility: hidden; } }
-  marquee { font-family: "Comic Sans MS", "Comic Sans", cursive; font-weight: bold; }
+  .sway { container-type: inline-size; overflow: hidden; white-space: nowrap;
+    font-family: "Comic Sans MS", "Comic Sans", cursive; font-weight: bold; }
+  .sway span { display: inline-block; will-change: transform; animation: sway 5s ease-in-out infinite alternate; }
+  @keyframes sway { from { transform: translateX(0); } to { transform: translateX(calc(100cqw - 100%)); } }
   .ticker { background: var(--hot); color: #ff0; border: 3px solid var(--ink); padding: 4px 0; font-size: 22px; overflow: hidden; white-space: nowrap;
     font-family: "Comic Sans MS", "Comic Sans", cursive; font-weight: bold; }
   .ticker .run { display: inline-flex; will-change: transform; animation: ticker 20s linear infinite; }
@@ -50,8 +53,8 @@
   pre.baby { font-size: 14px; line-height: 1.05; margin: 0; display: inline-block; text-align: left; }
   .sparkle { position: fixed; pointer-events: none; font-size: 16px; z-index: 99; animation: fall 900ms linear forwards; }
   @keyframes fall { to { transform: translateY(40px) rotate(180deg); opacity: 0; } }
-  @media (prefers-reduced-motion: reduce) { .blink, .sparkle { animation: none; } }
-  @media (max-width: 520px) { body { border-width: 4px; font-size: 17px; } marquee.big { font-size: 18px; } table.box td { display: block; } }
+  @media (prefers-reduced-motion: reduce) { .blink, .sparkle, .sway span { animation: none; } }
+  @media (max-width: 520px) { body { border-width: 4px; font-size: 17px; } .sway.big { font-size: 20px; } table.box td { display: block; } }
 </style>
 </head>
 <body>
@@ -78,7 +81,7 @@
 
 <h2 id="who">Who Should Book With Me</h2>
 <table class="box"><tr><td>
-  <marquee behavior="alternate" scrollamount="6" class="big">ANYONE WHO WANTS TO BE HOT</marquee>
+  <div class="sway big"><span>ANYONE WHO WANTS TO BE HOT</span></div>
 </td></tr></table>
 <img class="pic" src="photos/drop.jpg" width="1200" height="417" alt="Two dancers on a ballroom floor, one dropped into a dramatic floor split" loading="lazy">
 

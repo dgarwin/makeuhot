@@ -44,6 +44,13 @@
   .photos a:nth-child(3n+2) { background: #f0f; color: #000; }
   .photos a:nth-child(3n) { background: #0f0; color: #000; }
   .photos a:hover { background: var(--hot); color: #fff; transform: rotate(-3deg); }
+  .carousel { margin: 12px 0; border: 6px ridge #f0f; background: #000; padding: 8px; }
+  .carousel .frame { position: relative; aspect-ratio: 4 / 3; background: #000; overflow: hidden; }
+  .slide { display: none; margin: 0; position: absolute; inset: 0; }
+  .slide.on { display: block; }
+  .slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .controls { padding-top: 8px; }
+  .controls .btn { cursor: pointer; font-size: 16px; }
   pre.baby { font-size: 14px; line-height: 1.05; margin: 0; display: inline-block; text-align: left; }
   .construction { background: repeating-linear-gradient(45deg, #ff0 0 16px, #000 16px 32px); padding: 6px; }
   .construction span { background: #ff0; padding: 2px 8px; font-family: Arial, sans-serif; font-weight: bold; }
@@ -57,7 +64,35 @@
 
 <div class="ticker"><marquee scrollamount="8">★ WELCOME TO MAKEUHOT.DANCE ★ WEST COAST SWING LESSONS ★ NOW BOOKING ★ U COULD BE HOT ★ BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 AT 800x600 ★</marquee></div>
 
-<p class="center mono">[ <a href="#about">ABOUT ME</a> | <a href="#who">WHO SHOULD BOOK</a> | <a href="#photos">PHOTOS</a> | <a href="#book">BOOK A LESSON</a> ]</p>
+<div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Photos">
+  <div class="frame">
+    <figure class="slide on">
+      <img src="photos/jumpshot.jpg" alt="A dancer leaping mid-air in a line of dancers with arms raised, under green stage lights">
+    </figure>
+    <figure class="slide">
+      <img src="photos/drop.jpg" alt="Two dancers on a ballroom floor, one dropped into a dramatic floor split" loading="lazy">
+    </figure>
+    <figure class="slide">
+      <img src="photos/sass.jpg" alt="A dancer striking a hand-on-hip pose with a stuffed toy balanced on his head" loading="lazy">
+    </figure>
+    <figure class="slide">
+      <img src="photos/floss.jpg" alt="Three dancers mid-move on a ballroom floor lined with Christmas trees" loading="lazy">
+    </figure>
+    <figure class="slide">
+      <img src="photos/headshot.jpg" alt="A dancer standing on stage in a hoodie among a group of dancers" loading="lazy">
+    </figure>
+    <figure class="slide">
+      <img src="photos/butt.jpeg" alt="Three people in white outfits posing playfully in front of a stage curtain" loading="lazy">
+    </figure>
+  </div>
+  <div class="controls center">
+    <button type="button" class="btn" id="prev">&lt;&lt; BACK</button>
+    <button type="button" class="btn" id="pause">PAUSE</button>
+    <button type="button" class="btn" id="next">NEXT &gt;&gt;</button>
+  </div>
+</div>
+
+<p class="center mono">[ <a href="#about">ABOUT ME</a> | <a href="#who">WHO SHOULD BOOK</a> | <a href="#book">BOOK A LESSON</a> ]</p>
 
 <h1 class="center" style="background:#000;padding:10px 4px 14px;border:4px ridge #f0f"><span class="rainbow">MAKE U HOT</span></h1>
 <p class="center mono big">.DANCE</p>
@@ -97,23 +132,6 @@
   <marquee behavior="alternate" scrollamount="6" class="big">ANYONE WHO WANTS TO BE HOT</marquee>
 </td></tr></table>
 
-<h2 id="photos">Photo Gallery (proof of hotness)</h2>
-<table class="box"><tr><td>
-  <div class="photos">
-    <a href="https://www.facebook.com/photo?fbid=10167988600244418&amp;set=a.10150099160074418">PHOTO #01</a>
-    <a href="https://www.facebook.com/photo.php?fbid=10167056688159418&amp;set=pb.746219417.-2207520000&amp;type=3">PHOTO #02</a>
-    <a href="https://www.facebook.com/photo.php?fbid=10163149108669418&amp;set=pb.746219417.-2207520000&amp;type=3">PHOTO #03</a>
-    <a href="https://www.facebook.com/photo.php?fbid=10162443200609418&amp;set=pb.746219417.-2207520000&amp;type=3">PHOTO #04</a>
-    <a href="https://www.facebook.com/photo.php?fbid=10234599459705745&amp;set=t.746219417&amp;type=3">PHOTO #05</a>
-    <a href="https://www.facebook.com/photo.php?fbid=10104283532019443&amp;set=t.746219417&amp;type=3">PHOTO #06</a>
-    <a href="https://www.facebook.com/photo.php?fbid=1408595956365427&amp;set=t.746219417&amp;type=3">PHOTO #07</a>
-    <a href="https://www.facebook.com/photo.php?fbid=10159975362955942&amp;set=t.746219417&amp;type=3">PHOTO #08</a>
-    <a href="https://www.facebook.com/photo.php?fbid=10159975369295942&amp;set=t.746219417&amp;type=3">PHOTO #09</a>
-    <a href="https://www.facebook.com/photo.php?fbid=10159945753945942&amp;set=t.746219417&amp;type=3">PHOTO #10</a>
-  </div>
-  <p class="mono" style="font-size:13px;margin-bottom:0">* click to view. opens on facebook dot com. pls be patient on ur 56k modem.</p>
-</td></tr></table>
-
 <h2 id="book">Book A Lesson</h2>
 <table class="box"><tr><td class="center">
   <p>Send inquiries directly to:</p>
@@ -134,6 +152,27 @@
 </p>
 
 <script>
+  // photo carousel
+  (function () {
+    var slides = document.querySelectorAll("#carousel .slide"), i = 0, timer = null;
+    var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var pauseBtn = document.getElementById("pause");
+    function show(n) {
+      slides[i].classList.remove("on");
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add("on");
+      var img = slides[i].querySelector("img"); if (img.loading === "lazy") img.loading = "eager";
+    }
+    function play() { stop(); timer = setInterval(function () { show(i + 1); }, 3500); pauseBtn.textContent = "PAUSE"; }
+    function stop() { clearInterval(timer); timer = null; pauseBtn.textContent = "PLAY"; }
+    document.getElementById("prev").onclick = function () { show(i - 1); if (timer) play(); };
+    document.getElementById("next").onclick = function () { show(i + 1); if (timer) play(); };
+    pauseBtn.onclick = function () { timer ? stop() : play(); };
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") show(i - 1); else if (e.key === "ArrowRight") show(i + 1);
+    });
+    reduce ? stop() : play();
+  })();
   // dancing baby: cycle ASCII frames
   (function () {
     var frames = [

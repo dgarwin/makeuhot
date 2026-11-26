@@ -45,10 +45,11 @@
   .photos a:nth-child(3n) { background: #0f0; color: #000; }
   .photos a:hover { background: var(--hot); color: #fff; transform: rotate(-3deg); }
   .carousel { margin: 12px 0; border: 6px ridge #f0f; background: #000; padding: 8px 0; overflow: hidden; }
-  .carousel .track { display: flex; gap: 8px; width: max-content; animation: scroll 30s linear infinite; }
+  .carousel .track { display: flex; width: max-content; will-change: transform; backface-visibility: hidden;
+    transform: translate3d(0,0,0); animation: scroll 40s linear infinite; }
   .carousel:hover .track { animation-play-state: paused; }
-  .carousel img { height: 200px; width: auto; display: block; border: 3px solid #ff0; }
-  @keyframes scroll { to { transform: translateX(calc(-50% - 4px)); } }
+  .carousel img { height: 200px; width: auto; display: block; border: 3px solid #ff0; margin-right: 8px; flex: none; }
+  @keyframes scroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
   @media (max-width: 520px) { .carousel img { height: 140px; } }
   @media (prefers-reduced-motion: reduce) { .carousel { overflow-x: auto; } .carousel .track { animation: none; } }
   pre.baby { font-size: 14px; line-height: 1.05; margin: 0; display: inline-block; text-align: left; }
@@ -66,18 +67,18 @@
 
 <div class="carousel" aria-label="Photos">
   <div class="track">
-    <img src="photos/jumpshot.jpg" alt="A dancer leaping mid-air in a line of dancers with arms raised, under green stage lights">
-    <img src="photos/drop.jpg" alt="Two dancers on a ballroom floor, one dropped into a dramatic floor split">
-    <img src="photos/sass.jpg" alt="A dancer striking a hand-on-hip pose with a stuffed toy balanced on his head">
-    <img src="photos/floss.jpg" alt="Three dancers mid-move on a ballroom floor lined with Christmas trees">
-    <img src="photos/headshot.jpg" alt="A dancer standing on stage in a hoodie among a group of dancers">
-    <img src="photos/butt.jpeg" alt="Three people in white outfits posing playfully in front of a stage curtain">
-    <img src="photos/jumpshot.jpg" alt="" aria-hidden="true">
-    <img src="photos/drop.jpg" alt="" aria-hidden="true">
-    <img src="photos/sass.jpg" alt="" aria-hidden="true">
-    <img src="photos/floss.jpg" alt="" aria-hidden="true">
-    <img src="photos/headshot.jpg" alt="" aria-hidden="true">
-    <img src="photos/butt.jpeg" alt="" aria-hidden="true">
+    <img src="photos/jumpshot.jpg" width="320" height="400" alt="A dancer leaping mid-air in a line of dancers with arms raised, under green stage lights">
+    <img src="photos/drop.jpg" width="594" height="400" alt="Two dancers on a ballroom floor, one dropped into a dramatic floor split">
+    <img src="photos/sass.jpg" width="189" height="400" alt="A dancer striking a hand-on-hip pose with a stuffed toy balanced on his head">
+    <img src="photos/floss.jpg" width="600" height="400" alt="Three dancers mid-move on a ballroom floor lined with Christmas trees">
+    <img src="photos/headshot.jpg" width="600" height="400" alt="A dancer standing on stage in a hoodie among a group of dancers">
+    <img src="photos/butt.jpeg" width="224" height="400" alt="Three people in white outfits posing playfully in front of a stage curtain">
+    <img src="photos/jumpshot.jpg" width="320" height="400" alt="" aria-hidden="true">
+    <img src="photos/drop.jpg" width="594" height="400" alt="" aria-hidden="true">
+    <img src="photos/sass.jpg" width="189" height="400" alt="" aria-hidden="true">
+    <img src="photos/floss.jpg" width="600" height="400" alt="" aria-hidden="true">
+    <img src="photos/headshot.jpg" width="600" height="400" alt="" aria-hidden="true">
+    <img src="photos/butt.jpeg" width="224" height="400" alt="" aria-hidden="true">
   </div>
 </div>
 
